@@ -1,0 +1,10 @@
+---
+# tasks file for deploy
+- name: deploy
+  docker_network:
+    name: net_docker
+    driver: overlay
+
+- name: Выкладка сервисов 
+  include: "../services/api/service.yml"
+  loop: "{{ services }}" 
